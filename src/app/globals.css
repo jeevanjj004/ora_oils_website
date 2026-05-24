@@ -1,26 +1,370 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-serif: var(--font-cormorant), serif;
+  
+  --color-coconut-white: #FCFCFC;
+  --color-warm-cream: #FAF8F5;
+  --color-natural-brown: #8C6D54;
+  --color-soft-gold: #C5A880;
+  --color-deep-green: #0D2214;
+
+  --color-background: var(--color-warm-cream);
+  --color-foreground: var(--color-deep-green);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply antialiased overflow-x-hidden selection:bg-soft-gold selection:text-white;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ========== RESPONSIVE UTILITIES ========== */
+
+/* Container with proper mobile padding */
+.container-fluid {
+  @apply w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 lg:px-10;
+}
+
+/* Section spacing - Clean and consistent */
+.section {
+  @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28;
+}
+
+.section-sm {
+  @apply py-8 sm:py-10 md:py-12 lg:py-16;
+}
+
+.section-lg {
+  @apply py-16 sm:py-20 md:py-28 lg:py-36 xl:py-40;
+}
+
+/* Typography - Responsive */
+.heading-main {
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light tracking-tight;
+}
+
+.heading-secondary {
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light;
+}
+
+.heading-tertiary {
+  @apply text-2xl sm:text-3xl md:text-4xl font-serif font-light;
+}
+
+.body-text {
+  @apply text-sm sm:text-base md:text-lg font-light leading-relaxed;
+}
+
+.small-text {
+  @apply text-xs sm:text-sm font-light;
+}
+
+/* ========== COMPONENT STYLES ========== */
+
+/* Glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(197, 168, 128, 0.08);
+}
+
+.glass-card-light {
+  background: rgba(250, 248, 245, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(13, 34, 20, 0.05);
+}
+
+.glass-navbar {
+  background: rgba(13, 34, 20, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.06);
+}
+
+/* Buttons - Touch friendly */
+.btn-primary {
+  @apply px-6 sm:px-8 py-3 sm:py-4 bg-[var(--color-soft-gold)] text-[var(--color-deep-green)] text-xs sm:text-sm uppercase tracking-[0.2em] font-medium rounded-sm transition-all duration-500 hover:bg-white hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply px-6 sm:px-8 py-3 sm:py-4 border border-white/20 text-white text-xs sm:text-sm uppercase tracking-[0.2em] font-light rounded-sm transition-all duration-500 hover:border-[var(--color-soft-gold)] hover:bg-[var(--color-soft-gold)]/10 backdrop-blur-sm;
+}
+
+/* ========== ANIMATIONS ========== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Animation Classes */
+.animate-fade-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-fade-scale {
+  animation: fadeInScale 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* ========== SCROLLBAR ========== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-green);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-soft-gold);
+  border-radius: 4px;
+  border: 2px solid var(--color-deep-green);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E5C49A;
+}
+
+/* ========== MISC ========== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Image optimization */
+img {
+  @apply block;
+  content-visibility: auto;
+}
+
+img[loading="lazy"] {
+  @apply bg-gray-100;
+}
+
+/* Touch targets for mobile */
+@media (max-width: 768px) {
+  button, 
+  a,
+  [role="button"],
+  .clickable {
+    min-height: 44px;
+  }
+  
+  /* Reduce animations for better performance */
+  .animate-float,
+  .animate-pulse-slow {
+    animation-duration: 0s;
+  }
+}
+
+/* Perspective utility */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-soft-gold), #E5C49A, var(--color-soft-gold));
+  transform-origin: 0%;
+  z-index: 100;
+}
+
+/* Backdrop blur support */
+@supports not (backdrop-filter: blur(20px)) {
+  .glass-card, .glass-card-light, .glass-navbar {
+    background: rgba(13, 34, 20, 0.9);
+  }
+}
+
+/* Gold text gradient */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-soft-gold), #E5C49A);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.img-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive grid */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .grid-auto-fit {
+    gap: 2rem;
+  }
+}
+
+
+/* Add to the end of your globals.css */
+
+/* ========== CRITICAL FIXES FOR MOBILE ========== */
+
+/* Hero section - Fix video/frame congestion */
+#home {
+  @apply relative h-screen w-full overflow-hidden;
+}
+
+#home .hero-content {
+  @apply relative z-20 w-full max-w-5xl mx-auto px-5 sm:px-6 md:px-8 text-center text-white;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  #home .hero-content {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  
+  #home h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  #home p {
+    font-size: 0.875rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* About section - Fix image congestion */
+#about .about-image-container {
+  @apply relative w-full max-w-md mx-auto;
+}
+
+@media (max-width: 768px) {
+  #about .about-image-container {
+    max-width: 320px;
+  }
+  
+  #about .badge-pure,
+  #about .badge-organic {
+    transform: scale(0.8);
+  }
+}
+
+/* Footer fixes */
+footer {
+  @apply w-full;
+}
+
+footer .footer-container {
+  @apply w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8;
+}
+
+@media (max-width: 768px) {
+  footer .footer-links {
+    @apply flex flex-wrap justify-center gap-4 text-center;
+  }
+  
+  footer .footer-legal {
+    @apply flex flex-wrap justify-center gap-4 text-center;
+  }
+}
+
+/* General spacing fixes */
+@media (max-width: 768px) {
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
