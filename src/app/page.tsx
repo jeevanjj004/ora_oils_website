@@ -688,53 +688,62 @@ export default function Home() {
       ══════════════════════════════════════ */}
       <InstagramSection />
 
-               {/* ══════════════════════════════════════
-          8. CONTACT - SIDE BY SIDE ON ALL DEVICES
+                 
+
+
+
+
+
+
+
+
+
+
+
+      {/* ══════════════════════════════════════
+          8. CONTACT - SIDE BY SIDE (Mobile + Desktop optimized)
       ══════════════════════════════════════ */}
       <section id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-5 sm:px-6 lg:px-8 bg-[#040c07] text-white relative overflow-hidden">
         <FloatingParticles />
 
-        {/* Background glow - Responsive */}
         <div className="absolute bottom-0 left-0 w-[250px] sm:w-[350px] md:w-[450px] lg:w-[550px] h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] bg-[var(--color-soft-gold)]/5 rounded-full blur-[80px] sm:blur-[100px] md:blur-[120px] lg:blur-[140px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10 space-y-10 sm:space-y-12 md:space-y-14 lg:space-y-16">
           
-          {/* Main Content Row - ALWAYS SIDE BY SIDE (never stacked) */}
-          <div className="flex flex-row flex-wrap items-start justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
+          {/* FORCED 2-COLUMN GRID - Responsive sizes */}
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16">
             
-            {/* Left Column - Contact Info (45% width on mobile, 40% on desktop) */}
-            <div className="w-[45%] sm:w-[45%] md:w-[42%] lg:w-[40%] space-y-5 sm:space-y-6 md:space-y-8">
+            {/* LEFT COLUMN - Contact Info */}
+            <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
               
-              {/* Header */}
-              <ScrollReveal direction="left">
-                <div className="space-y-2 sm:space-y-3 md:space-y-4">
-                  <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] uppercase tracking-[0.3em] text-[var(--color-soft-gold)] font-light">
-                    Connect With Us
-                  </span>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-light leading-tight">
-                    Reach the <br />
-                    <span className="italic text-[var(--color-soft-gold)]">ORA Concierge.</span>
-                  </h2>
-                  <p className="text-[10px] sm:text-xs md:text-sm font-light text-white/55 leading-relaxed">
-                    Orders, wholesale inquiries, or a simple hello — we're always here.
-                  </p>
-                </div>
-              </ScrollReveal>
-              
+             {/* Header */}
+<ScrollReveal direction="left">
+  <div className="space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
+    <span className="text-[7px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] uppercase tracking-[0.3em] text-[var(--color-soft-gold)] font-light">
+      Connect With Us
+    </span>
+    <h2 className="text-sm sm:text-base md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-serif font-light leading-tight">
+      Reach the <span className="italic text-[var(--color-soft-gold)]">ORA Team.</span>
+    </h2>
+    <p className="text-[8px] sm:text-[9px] md:text-xs lg:text-sm xl:text-base font-light text-white/55 leading-relaxed">
+      Orders, wholesale inquiries, or a simple hello — we're always here.
+    </p>
+  </div>
+</ScrollReveal>
               {/* Contact Methods */}
               <ScrollReveal direction="up" delay={0.1}>
-                <div className="space-y-3 sm:space-y-4 pt-3 sm:pt-4 border-t border-[var(--color-soft-gold)]/15">
+                <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 pt-2 sm:pt-3 md:pt-4 border-t border-[var(--color-soft-gold)]/15">
                   {[
                     { icon: Phone, label: "Phone", value: "+91 79942 93712", href: "tel:+917994293712" },
                     { icon: Envelope, label: "Email", value: "oracoconut@gmail.com", href: "mailto:oracoconut@gmail.com" },
                   ].map(({ icon: Icon, label, value, href }) => (
-                    <div key={label} className="flex items-center gap-2 sm:gap-3 group">
-                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0 bg-white/5 border-[var(--color-soft-gold)]/10 text-[var(--color-soft-gold)]">
-                        <Icon size={12} weight="light" className="sm:w-3.5 sm:h-3.5" />
+                    <div key={label} className="flex items-center gap-2 sm:gap-3 md:gap-4 group">
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-10 lg:h-10 rounded-full border flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0 bg-white/5 border-[var(--color-soft-gold)]/10 text-[var(--color-soft-gold)]">
+                        <Icon size={10} weight="light" className="sm:w-3 sm:h-3 md:w-4 md:h-4 lg:w-5 lg:h-5" />
                       </div>
                       <div>
-                        <p className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-widest text-white/35 font-light">{label}</p>
-                        <a href={href} className="text-[10px] sm:text-xs md:text-sm font-light hover:text-[var(--color-soft-gold)] transition-colors duration-300 break-all">
+                        <p className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[10px] xl:text-[11px] uppercase tracking-widest text-white/35 font-light">{label}</p>
+                        <a href={href} className="text-[8px] sm:text-[9px] md:text-xs lg:text-sm xl:text-base font-light hover:text-[var(--color-soft-gold)] transition-colors duration-300 break-all">
                           {value}
                         </a>
                       </div>
@@ -745,38 +754,39 @@ export default function Home() {
               
               {/* Address */}
               <ScrollReveal direction="up" delay={0.2}>
-                <div className="pt-2 sm:pt-3 border-t border-white/[0.06] space-y-1.5">
-                  <span className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-[var(--color-soft-gold)]/50 font-light block">
+                <div className="pt-2 sm:pt-3 md:pt-4 border-t border-white/[0.06] space-y-1 sm:space-y-1.5 md:space-y-2">
+                  <span className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.2em] text-[var(--color-soft-gold)]/50 font-light block">
                     Manufactured & Marketed By
                   </span>
-                  <p className="text-[9px] sm:text-[10px] md:text-xs text-white/45 font-light leading-relaxed">
-                    12/267 ORA Coconut Oil, 6th Mile,<br />
-                    Chakkupallam, Kumily Munnar Road,<br />
+                  <p className="text-[7px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm text-white/45 font-light leading-relaxed">
+                    12/267 ORA Coconut Oil,<br />
+                    6th Mile, Chakkupallam,<br />
+                    Kumily Munnar Road,<br />
                     Idukki — PIN: 685509
                   </p>
-                  <p className="text-[7px] sm:text-[8px] md:text-[9px] text-white/25 font-light tracking-wider">
+                  <p className="text-[6px] sm:text-[7px] md:text-[8px] lg:text-[9px] xl:text-[10px] text-white/25 font-light tracking-wider">
                     FSSAI: 21326178000353
                   </p>
                 </div>
               </ScrollReveal>
             </div>
 
-            {/* Right Column - Contact Form (50% width on mobile, 55% on desktop) */}
-            <ScrollReveal direction="right" className="w-[50%] sm:w-[50%] md:w-[53%] lg:w-[55%]">
-              <div className="glass-card p-4 sm:p-5 md:p-6 rounded-xl border border-[var(--color-soft-gold)]/10 bg-white/[0.02]">
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif text-white font-light mb-4 sm:mb-5 md:mb-6">
+            {/* RIGHT COLUMN - Contact Form */}
+            <ScrollReveal direction="right">
+              <div className="glass-card p-3 sm:p-4 md:p-5 lg:p-6 xl:p-7 rounded-xl border border-[var(--color-soft-gold)]/10 bg-white/[0.02]">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-serif text-white font-light mb-3 sm:mb-4 md:mb-5 lg:mb-6">
                   Send a Message
                 </h3>
                 
-                <form onSubmit={handleFormSubmit} className="space-y-3 sm:space-y-4">
-                  {/* Name & Email Row - Stays side by side on mobile */}
+                <form onSubmit={handleFormSubmit} className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5">
+                  {/* Name & Email Row */}
                   <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                     {[
                       { id: "name", label: "Name", type: "text", ph: "John Doe" },
                       { id: "email", label: "Email", type: "email", ph: "john@example.com" }
                     ].map((f) => (
-                      <div key={f.id} className="space-y-1">
-                        <label htmlFor={f.id} className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.25em] text-white/40 font-light">
+                      <div key={f.id} className="space-y-0.5 sm:space-y-1 md:space-y-1.5">
+                        <label htmlFor={f.id} className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.25em] text-white/40 font-light">
                           {f.label}
                         </label>
                         <input
@@ -786,15 +796,15 @@ export default function Home() {
                           value={(formData as Record<string, string>)[f.id]}
                           onChange={handleFormChange}
                           placeholder={f.ph}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg py-2 sm:py-2.5 px-2 sm:px-3 text-[10px] sm:text-xs font-light text-white placeholder:text-white/25 focus:outline-none focus:border-[var(--color-soft-gold)] transition-colors duration-300"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg py-1.5 sm:py-2 md:py-2.5 lg:py-3 px-2 sm:px-3 text-[8px] sm:text-[9px] md:text-xs lg:text-sm font-light text-white placeholder:text-white/25 focus:outline-none focus:border-[var(--color-soft-gold)] transition-colors duration-300"
                         />
                       </div>
                     ))}
                   </div>
                   
                   {/* Subject */}
-                  <div className="space-y-1">
-                    <label htmlFor="subject" className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.25em] text-white/40 font-light">
+                  <div className="space-y-0.5 sm:space-y-1 md:space-y-1.5">
+                    <label htmlFor="subject" className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.25em] text-white/40 font-light">
                       Subject
                     </label>
                     <input
@@ -803,23 +813,23 @@ export default function Home() {
                       value={formData.subject}
                       onChange={handleFormChange}
                       placeholder="Inquiry, Collaboration..."
-                      className="w-full bg-white/5 border border-white/10 rounded-lg py-2 sm:py-2.5 px-2 sm:px-3 text-[10px] sm:text-xs font-light text-white placeholder:text-white/25 focus:outline-none focus:border-[var(--color-soft-gold)] transition-colors duration-300"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg py-1.5 sm:py-2 md:py-2.5 lg:py-3 px-2 sm:px-3 text-[8px] sm:text-[9px] md:text-xs lg:text-sm font-light text-white placeholder:text-white/25 focus:outline-none focus:border-[var(--color-soft-gold)] transition-colors duration-300"
                     />
                   </div>
                   
                   {/* Message */}
-                  <div className="space-y-1">
-                    <label htmlFor="message" className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.25em] text-white/40 font-light">
+                  <div className="space-y-0.5 sm:space-y-1 md:space-y-1.5">
+                    <label htmlFor="message" className="text-[5px] sm:text-[6px] md:text-[8px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.25em] text-white/40 font-light">
                       Message
                     </label>
                     <textarea
                       id="message"
-                      rows={3}
+                      rows={2}
                       required
                       value={formData.message}
                       onChange={handleFormChange}
                       placeholder="Your message here..."
-                      className="w-full bg-white/5 border border-white/10 rounded-lg py-2 sm:py-2.5 px-2 sm:px-3 text-[10px] sm:text-xs font-light text-white placeholder:text-white/25 focus:outline-none focus:border-[var(--color-soft-gold)] transition-colors duration-300 resize-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg py-1.5 sm:py-2 md:py-2.5 lg:py-3 px-2 sm:px-3 text-[8px] sm:text-[9px] md:text-xs lg:text-sm font-light text-white placeholder:text-white/25 focus:outline-none focus:border-[var(--color-soft-gold)] transition-colors duration-300 resize-none"
                     />
                   </div>
                   
@@ -827,41 +837,33 @@ export default function Home() {
                   <button
                     type="submit"
                     disabled={formStatus === "sending"}
-                    className="w-full py-2 sm:py-2.5 md:py-3 bg-[var(--color-soft-gold)] text-[var(--color-deep-green)] text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium rounded-lg hover:bg-white hover:shadow-[0_0_20px_var(--color-soft-gold)] transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full py-1.5 sm:py-2 md:py-2.5 lg:py-3 bg-[var(--color-soft-gold)] text-[var(--color-deep-green)] text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] xl:text-xs uppercase tracking-[0.3em] font-medium rounded-lg hover:bg-white transition-all duration-500 disabled:opacity-60"
                   >
                     {formStatus === "sending" ? "Sending..." : "Send Message"}
                   </button>
                   
                   {/* Status Messages */}
                   {formStatus === "success" && (
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-center text-[var(--color-soft-gold)] text-[10px] sm:text-xs font-light"
-                    >
+                    <p className="text-center text-[var(--color-soft-gold)] text-[8px] sm:text-[9px] md:text-[10px] font-light">
                       ✦ Message sent. We'll get back to you soon.
-                    </motion.p>
+                    </p>
                   )}
                   {formStatus === "error" && (
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-center text-red-400 text-[10px] sm:text-xs font-light"
-                    >
+                    <p className="text-center text-red-400 text-[8px] sm:text-[9px] md:text-[10px] font-light">
                       Something went wrong. Please try again or call us directly.
-                    </motion.p>
+                    </p>
                   )}
                 </form>
               </div>
             </ScrollReveal>
           </div>
 
-          {/* Google Map - Full width */}
+          {/* Google Map */}
           <ScrollReveal direction="up">
-            <div className="rounded-xl overflow-hidden border border-[var(--color-soft-gold)]/10 shadow-2xl">
-              <div className="px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 bg-white/[0.02] border-b border-[var(--color-soft-gold)]/10 flex items-center gap-1.5 sm:gap-2">
+            <div className="rounded-xl overflow-hidden border border-[var(--color-soft-gold)]/10">
+              <div className="px-2 sm:px-3 md:px-4 lg:px-5 py-1 sm:py-1.5 md:py-2 lg:py-2.5 bg-white/[0.02] border-b border-[var(--color-soft-gold)]/10 flex items-center gap-1 sm:gap-1.5 md:gap-2">
                 <span className="w-1 h-1 rounded-full bg-[var(--color-soft-gold)]" />
-                <span className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.25em] text-white/35 font-light">
+                <span className="text-[6px] sm:text-[7px] md:text-[8px] lg:text-[9px] xl:text-[10px] uppercase tracking-[0.25em] text-white/35 font-light">
                   Our Location — Idukki, Kerala
                 </span>
               </div>
@@ -869,38 +871,37 @@ export default function Home() {
                 title="ORA Oils — Idukki"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62915.90046839407!2d77.07832317910156!3d9.930087699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07923bd4fc1f7f%3A0x39a0da4f04ef4f3b!2sKumily%2C%20Kerala%20685509!5e0!3m2!1sen!2sin!4v1700000000000"
                 width="100%"
-                height="200"
+                height="160"
                 style={{ border: 0, filter: "invert(88%) hue-rotate(175deg) saturate(0.55) brightness(0.88)" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:min-h-[240px]"
+                className="min-h-[140px] sm:min-h-[160px] md:min-h-[180px] lg:min-h-[220px] xl:min-h-[280px]"
               />
             </div>
           </ScrollReveal>
         </div>
       </section>
-      
 
 
 
-            {/* ══════════════════════════════════════
-          9. FOOTER - SIDE BY SIDE ON ALL DEVICES
+      {/* ══════════════════════════════════════
+          9. FOOTER - FULLY RESPONSIVE
       ══════════════════════════════════════ */}
-      <footer className="py-8 sm:py-10 md:py-12 lg:py-16 px-5 sm:px-6 lg:px-8 bg-[#020704] text-white border-t border-white/10">
+      <footer className="py-8 sm:py-10 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-[#020704] text-white border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           
-          {/* Main Footer Row - ALWAYS SIDE BY SIDE (never stacked) */}
-          <div className="flex flex-row flex-wrap items-center justify-between gap-4 sm:gap-6 md:gap-8 lg:gap-12">
+          {/* Main Footer Row - Stack on mobile, side by side on tablet+ */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-12">
             
-            {/* Logo Section - Left side */}
-            <div className="text-left space-y-1">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif tracking-[0.3em] text-white font-light">O R A</h3>
-              <p className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] uppercase tracking-[0.25em] text-[var(--color-soft-gold)]/70 font-light">Nature's Finest Drop</p>
+            {/* Logo Section - Centered on mobile, left on desktop */}
+            <div className="text-center md:text-left space-y-1">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif tracking-[0.3em] text-white font-light">O R A</h3>
+              <p className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[var(--color-soft-gold)]/70 font-light">Nature's Finest Drop</p>
             </div>
             
-            {/* Navigation Links - Center */}
-            <div className="flex flex-wrap justify-center gap-x-3 sm:gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] uppercase tracking-[0.2em] font-light">
+            {/* Navigation Links - Wrap properly */}
+            <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-5 md:gap-x-6 gap-y-2 text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-light">
               {[
                 ["Home", "#home"],
                 ["About", "#about"],
@@ -924,9 +925,9 @@ export default function Home() {
               ))}
             </div>
             
-            {/* Legal & Social - Right side */}
-            <div className="text-right space-y-1 sm:space-y-2">
-              <div className="flex flex-wrap justify-end gap-2 sm:gap-3 md:gap-4 text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] text-white/40 font-light">
+            {/* Legal & Social - Centered on mobile, right on desktop */}
+            <div className="text-center md:text-right">
+              <div className="flex flex-wrap justify-center md:justify-end gap-3 sm:gap-4 text-[9px] sm:text-[10px] md:text-[11px] text-white/40 font-light">
                 <a href="https://instagram.com/thoma__sz" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-soft-gold)] transition-colors duration-300">Instagram</a>
                 <span className="text-white/20">/</span>
                 <a href="#privacy" onClick={(e) => { e.preventDefault(); alert("Privacy Policy: We respect your privacy. Your data is never shared with third parties."); }} className="hover:text-[var(--color-soft-gold)] transition-colors duration-300">Privacy</a>
@@ -934,15 +935,16 @@ export default function Home() {
                 <a href="#terms" onClick={(e) => { e.preventDefault(); alert("Terms & Conditions: By using our website, you agree to our terms. For bulk orders, please contact us directly."); }} className="hover:text-[var(--color-soft-gold)] transition-colors duration-300">Terms</a>
               </div>
               
+              {/* Removed the space here - no margin-top */}
               <div className="text-[9px] sm:text-[10px] md:text-xs text-white/30 font-light tracking-wider">
                 Website by <GulbeeContact />
               </div>
             </div>
           </div>
           
-          {/* Copyright - Full width bottom */}
+          {/* Copyright - Full width */}
           <div className="text-center mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-5 md:pt-6 border-t border-white/10">
-            <p className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-white/25 font-light">
+            <p className="text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-white/25 font-light px-2">
               © 2026 ORA. Handcrafted with Absolute Purity. All Rights Reserved.
             </p>
           </div>

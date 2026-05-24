@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ShoppingBag, ArrowRight, MapPin, Package, WhatsappLogo, User, Phone, Plus, Minus, Trash } from "@phosphor-icons/react";
 import { products } from "@/components/products";
 
-const WA_NUMBER = "919061899022";
+const WA_NUMBER = "917593897129";
 
 interface CartItem {
   id: string;
