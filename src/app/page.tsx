@@ -363,16 +363,13 @@ export default function Home() {
 
 
 
-
-
-
       {/* ══════════════════════════════════════
           3. WHY ORA - PERFECTLY BALANCED (Mobile + Desktop)
       ══════════════════════════════════════ */}
       <section id="why-ora" className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-5 sm:px-6 lg:px-8 xl:px-12 bg-[#09150E] text-white relative overflow-hidden">
         <FloatingParticles />
         
-        {/* Animated Background Orbs - Responsive sizing */}
+        {/* Animated Background Orbs */}
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -406,12 +403,12 @@ export default function Home() {
             </ScrollReveal>
           </div>
 
-          {/* Cards Grid - Responsive */}
+          {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 xl:gap-10 px-0">
             {[
-              { title: "100% Organic", desc: "Certified organic from sustainable Kerala farms.", icon: Leaf, tag: "Certified Purity" },
-              { title: "Cold Pressed", desc: "No heat — every nutrient and enzyme fully preserved.", icon: Drop, tag: "Nutrients Preserved" },
-              { title: "Chemical Free", desc: "Zero preservatives, paraben, or mineral oils. Ever.", icon: ShieldCheck, tag: "Zero Additives" },
+              { title: "100% Organic", desc: "Certified organic from sustainable Kerala farms.", tag: "Certified Purity" },
+              { title: "Cold Pressed", desc: "No heat — every nutrient and enzyme fully preserved.", tag: "Nutrients Preserved" },
+              { title: "Chemical Free", desc: "Zero preservatives, paraben, or mineral oils. Ever.", tag: "Zero Additives" },
             ].map((feature, i) => (
               <motion.div
                 key={i}
@@ -424,20 +421,18 @@ export default function Home() {
               >
                 <div className="relative h-full bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl sm:rounded-2xl lg:rounded-3xl border border-white/10 p-5 sm:p-6 lg:p-7 xl:p-8 overflow-hidden transition-all duration-500 group-hover:border-[var(--color-soft-gold)]/30 group-hover:shadow-2xl">
                   
-                  {/* Icon Container - Responsive */}
+                  {/* Icon Container - Without icon, just decorative circle */}
                   <div className="relative mb-5 sm:mb-6 lg:mb-7 xl:mb-8">
                     <motion.div
                       animate={{ rotate: 360 }}
                       transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                       className="absolute -inset-2 rounded-full border border-[var(--color-soft-gold)]/30"
                     />
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                      className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[var(--color-soft-gold)]/20 to-transparent flex items-center justify-center border border-[var(--color-soft-gold)]/40"
-                    >
-                      <feature.icon size={24} weight="light" className="text-[var(--color-soft-gold)] sm:w-7 sm:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9" />
-                    </motion.div>
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[var(--color-soft-gold)]/20 to-transparent flex items-center justify-center border border-[var(--color-soft-gold)]/40">
+                      <span className="text-[var(--color-soft-gold)] text-xl sm:text-2xl lg:text-3xl font-serif">
+                        {i === 0 ? "🌿" : i === 1 ? "❄️" : "✨"}
+                      </span>
+                    </div>
                   </div>
                   
                   {/* Title */}
@@ -456,9 +451,7 @@ export default function Home() {
                   {/* Tag */}
                   <div className="mt-4 sm:mt-5 lg:mt-6 flex items-center gap-1.5 sm:gap-2">
                     <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[var(--color-soft-gold)]/20 flex items-center justify-center">
-                      <svg className="w-1.5 h-1.5 sm:w-2 sm:h-2 text-[var(--color-soft-gold)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[var(--color-soft-gold)]" />
                     </div>
                     <span className="text-[7px] sm:text-[8px] lg:text-[9px] xl:text-[10px] uppercase tracking-wider text-white/40">
                       {feature.tag}
@@ -469,26 +462,51 @@ export default function Home() {
             ))}
           </div>
           
+          {/* Trust & Certifications Section - Text only, no icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-12 sm:mt-16 md:mt-20"
+          >
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-[var(--color-soft-gold)]/15 p-5 sm:p-6">
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12">
+                
+{/* Traditional Cold-Pressed Method */}
+<div className="text-center">
+        <p className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-white/40 font-light">Kerala's Finest</p>
+        <p className="text-[11px] sm:text-xs text-white/70">Regional pride</p>
+      </div>
+
+                {/* FSSAI License - Text only */}
+                <div className="text-center">
+                  <p className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-white/40 font-light">FSSAI Licensed</p>
+                  <p className="text-[11px] sm:text-xs font-mono text-white/70">21326178000353</p>
+                </div>
+                
+                {/* Certified Organic - Text only */}
+                <div className="text-center">
+                  <p className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-white/40 font-light">Certified</p>
+                  <p className="text-[11px] sm:text-xs text-white/70">100% Organic</p>
+                </div>
+                
+
+                
+              </div>
+            </div>
+          </motion.div>
+          
           {/* Bottom CTA */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             className="text-center mt-10 sm:mt-14 md:mt-16 lg:mt-20"
           >
-            <div className="inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-5 sm:px-6 md:px-7 lg:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-full border border-[var(--color-soft-gold)]/30 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 group cursor-pointer"
-              onClick={openOrder}
-            >
-              <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2 lg:h-2.5 lg:w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-soft-gold)] opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 lg:h-2.5 lg:w-2.5 bg-[var(--color-soft-gold)]" />
-              </span>
-              <span className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm uppercase tracking-[0.2em] text-[var(--color-soft-gold)] font-light group-hover:tracking-[0.25em] transition-all duration-300">
-                Experience the Difference
-              </span>
-              <ArrowRight size={12} className="text-[var(--color-soft-gold)] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 sm:w-3 sm:h-3 lg:w-4 lg:h-4" />
-            </div>
+            
+
           </motion.div>
         </div>
       </section>
@@ -498,7 +516,6 @@ export default function Home() {
           perspective: 1000px;
         }
       `}</style>
-      
       {/* ══════════════════════════════════════
           5. PRICING — PREMIUM SMOOTH CYCLIC 3D CAROUSEL
       ══════════════════════════════════════ */}
