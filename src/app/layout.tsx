@@ -7,7 +7,7 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
-  display: 'swap', // Performance: Prevent FOIT
+  display: 'swap',
   preload: true,
 });
 
@@ -20,16 +20,21 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://oraoils.com'),
+  metadataBase: new URL('https://oramills.in'),
+  
   title: {
-    default: "ORA | Nature's Finest Drop",
-    template: "%s | ORA Coconut Oil"
+    default: "ORA Mills | Nature's Finest Drop",
+    template: "%s | ORA Mills"
   },
-  description: "Experience the ultra-premium luxury cold-pressed organic coconut oil by ORA. Crafted with absolute purity and tradition for exquisite cooking, skin nourishment, and holistic wellness.",
-  keywords: ["coconut oil", "cold-pressed coconut oil", "organic coconut oil", "ORA coconut oil", "Kerala coconut oil", "virgin coconut oil"],
-  authors: [{ name: "ORA Oils" }],
-  creator: "ORA Oils",
-  publisher: "ORA Oils",
+  
+  description: "Experience the ultra-premium luxury cold-pressed organic coconut oil by ORA Mills. Crafted with absolute purity and tradition for exquisite cooking, skin nourishment, and holistic wellness.",
+  
+  keywords: ["coconut oil", "cold-pressed coconut oil", "organic coconut oil", "ORA Mills", "Kerala coconut oil", "virgin coconut oil"],
+  
+  authors: [{ name: "ORA Mills" }],
+  creator: "ORA Mills",
+  publisher: "ORA Mills",
+  
   robots: {
     index: true,
     follow: true,
@@ -41,35 +46,62 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://oraoils.com",
-    siteName: "ORA Coconut Oil",
-    title: "ORA | Nature's Finest Drop",
+    url: "https://oramills.in",
+    siteName: "ORA Mills Coconut Oil",
+    title: "ORA Mills | Nature's Finest Drop",
     description: "Cold-pressed, chemical-free coconut oil — crafted with purity and tradition from the heart of Kerala.",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ORA Coconut Oil - Nature's Finest Drop",
+        alt: "ORA Mills Coconut Oil - Nature's Finest Drop",
       },
     ],
   },
+  
   twitter: {
     card: "summary_large_image",
-    title: "ORA | Nature's Finest Drop",
+    title: "ORA Mills | Nature's Finest Drop",
     description: "Cold-pressed, chemical-free coconut oil — crafted with purity and tradition from the heart of Kerala.",
     images: ["/images/og-image.jpg"],
   },
+  
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "icon",
+        url: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
   },
+  
+  manifest: "/site.webmanifest",
+  
   verification: {
-    google: "your-google-verification-code", // Add your Google Search Console code
+    google: "your-google-verification-code",
   },
+  
   category: "food",
 };
 
@@ -84,6 +116,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        
+        {/* ✅ FAVICON LINKS - Browser tab icon */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        
       </head>
       <body className={`${cormorant.variable} ${outfit.variable} font-sans antialiased`}>
         {children}

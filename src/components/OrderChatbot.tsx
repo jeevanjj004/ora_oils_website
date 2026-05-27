@@ -99,31 +99,26 @@ export default function OrderChatbot({ onOpen }: { onOpen?: () => void }) {
     return true;
   };
 
+  // Professional WhatsApp message format with bold text
   const buildWhatsAppMessage = () => {
     const orderItems = cart.map(item => 
-      `  • ${item.name} x ${item.quantity} = ₹${item.price * item.quantity}`
+      `${item.name} x ${item.quantity} = ₹${item.price * item.quantity}`
     ).join('\n');
     
-    const msg = `*NEW ORDER from ORA Website* 🥥
+    const msg = `*NEW ORDER - ORA MILLS*
 
-━━━━━━━━━━━━━━━━━━━━━━━━
-📦 *ORDER SUMMARY*
-━━━━━━━━━━━━━━━━━━━━━━━━
+*ORDER SUMMARY:*
 ${orderItems}
 
-━━━━━━━━━━━━━━━━━━━━━━━━
-💰 *TOTAL: ₹${getTotal()}*
-━━━━━━━━━━━━━━━━━━━━━━━━
+*TOTAL: ₹${getTotal()}*
 
-👤 *CUSTOMER DETAILS*
-━━━━━━━━━━━━━━━━━━━━━━━━
+*CUSTOMER DETAILS:*
 Name: ${name}
 WhatsApp: ${whatsapp}
 Address: ${address}
 Pincode: ${pincode}
-━━━━━━━━━━━━━━━━━━━━━━━━
 
-Please confirm my order. Thank you! 🙏`;
+Please confirm this order. Thank you!`;
     return encodeURIComponent(msg);
   };
 
@@ -207,6 +202,12 @@ Please confirm my order. Thank you! 🙏`;
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
+                  {/* Show total price in header */}
+                  {cart.length > 0 && (
+                    <div className="mr-2 text-[10px] sm:text-xs text-[var(--color-soft-gold)] font-medium">
+                      ₹{getTotal()}
+                    </div>
+                  )}
                   {cart.length > 0 && (
                     <button
                       onClick={() => setShowCart(!showCart)}
@@ -431,6 +432,16 @@ Please confirm my order. Thank you! 🙏`;
                       </div>
                     </div>
                   </div>
+
+                  {/* Display Total Price in Form */}
+                  {cart.length > 0 && (
+                    <div className="pt-2 border-t border-white/15">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[11px] sm:text-xs text-white/60 font-light">Total Amount</span>
+                        <span className="text-base sm:text-lg font-serif font-bold text-[var(--color-soft-gold)]">₹{getTotal()}</span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Error Message */}
                   {error && (
