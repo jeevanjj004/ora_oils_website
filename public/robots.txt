@@ -1,0 +1,17 @@
+# ORA Mills - Robots.txt File
+# This file tells search engines what to crawl and what to ignore
+
+# Allow all major search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Block access to admin and internal paths (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /_static/
+
+# Tell search engines where your sitemap is located
+Sitemap: https://oramills.in/sitemap.xml
+
+# Prevent crawling of specific URL parameters (optional)
+Disallow: /*?*
