@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { InstagramLogo, ArrowUpRight } from "@phosphor-icons/react";
 
-const HANDLE = "thoma__sz";
+const HANDLE = "_a.zi_f_";
 const URL    = `https://instagram.com/${HANDLE}`;
 
 export default function InstagramSection() {
